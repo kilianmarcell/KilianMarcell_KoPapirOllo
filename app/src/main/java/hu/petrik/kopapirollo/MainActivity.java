@@ -43,7 +43,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    int teTipped;
     int randomGepTippel;
+    int tePont = 0;
+    int gepPont = 0;
+
     public void gepSorsol() {
         randomGepTippel = (int)(Math.random() * 3);
 
@@ -56,22 +60,36 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    int teTipped;
+    //rock = 0
+    //paper = 1
+    //scissors = 2
     public void kiNyer(int ember, int gep) {
         if (ember == gep) {
-
+            Toast.makeText(MainActivity.this, "Döntetlen", Toast.LENGTH_SHORT).show();
         } else if (ember == 0 && gep == 1) {
-
+            Toast.makeText(MainActivity.this, "Ezt a kört a gép nyerte", Toast.LENGTH_SHORT).show();
+            gepPont++;
+            gepPontTextView.setText("Computer: " + gepPont);
         } else if (ember == 0 && gep == 2) {
-
+            Toast.makeText(MainActivity.this, "Ezt a kört te nyerted", Toast.LENGTH_SHORT).show();
+            tePont++;
+            emberPontTextView.setText("Ember: " + tePont + " ");
         } else if (ember == 1 && gep == 0) {
-
+            Toast.makeText(MainActivity.this, "Ezt a kört te nyerted", Toast.LENGTH_SHORT).show();
+            tePont++;
+            emberPontTextView.setText("Ember: " + tePont + " ");
         } else if (ember == 1 && gep == 2) {
-
+            Toast.makeText(MainActivity.this, "Ezt a kört a gép nyerte", Toast.LENGTH_SHORT).show();
+            gepPont++;
+            gepPontTextView.setText("Computer: " + gepPont);
         } else if (ember == 2 && gep == 0) {
-
+            Toast.makeText(MainActivity.this, "Ezt a kört a gép nyerte", Toast.LENGTH_SHORT).show();
+            gepPont++;
+            gepPontTextView.setText("Computer: " + gepPont);
         } else if (ember == 2 && gep == 1) {
-
+            Toast.makeText(MainActivity.this, "Ezt a kört te nyerted", Toast.LENGTH_SHORT).show();
+            tePont++;
+            emberPontTextView.setText("Ember: " + tePont + " ");
         }
     }
 
