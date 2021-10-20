@@ -1,7 +1,9 @@
 package hu.petrik.kopapirollo;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             gepSorsol();
             teTipped = 0;
             kiNyer(teTipped, randomGepTippel);
+            vizsgal();
         });
 
         papirGomb.setOnClickListener(view -> {
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             gepSorsol();
             teTipped = 1;
             kiNyer(teTipped, randomGepTippel);
+            vizsgal();
         });
 
         olloGomb.setOnClickListener(view -> {
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             gepSorsol();
             teTipped = 2;
             kiNyer(teTipped, randomGepTippel);
+            vizsgal();
         });
     }
 
@@ -47,6 +52,32 @@ public class MainActivity extends AppCompatActivity {
     int randomGepTippel;
     int tePont = 0;
     int gepPont = 0;
+
+    public void vizsgal() {
+        if (tePont >= 3 || gepPont >= 3) {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+            if (tePont >= 3) {
+                alertDialog.setTitle("Győzelem");
+            } else {
+                alertDialog.setTitle("Vereség");
+            }
+            alertDialog.setMessage("Szeretne új játékot játszani?");
+            alertDialog.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    ujJatek();
+                    closeContextMenu();
+                }
+            });
+            alertDialog.setNegativeButton("Nem", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+            alertDialog.create().show();
+        }
+    }
 
     public void gepSorsol() {
         randomGepTippel = (int)(Math.random() * 3);
@@ -91,6 +122,15 @@ public class MainActivity extends AppCompatActivity {
             tePont++;
             emberPontTextView.setText("Ember: " + tePont + " ");
         }
+    }
+
+    public void ujJatek() {
+        imageViewTeValasztasod.setImageResource(R.drawable.rock);
+        imageViewGepValasztasa.setImageResource(R.drawable.rock);
+        emberPontTextView.setText("Ember: 0 ");
+        gepPontTextView.setText("Computer: 0");
+        tePont = 0;
+        gepPont = 0;
     }
 
     public void init() {
