@@ -43,8 +43,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    int randomGepTippel = (int)(Math.random() * 3);
+    int randomGepTippel;
     public void gepSorsol() {
+        randomGepTippel = (int)(Math.random() * 3);
 
         if (randomGepTippel == 0) {
             imageViewGepValasztasa.setImageResource(R.drawable.rock);
