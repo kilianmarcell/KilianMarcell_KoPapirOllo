@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,33 +24,54 @@ public class MainActivity extends AppCompatActivity {
         koGomb.setOnClickListener(view -> {
             imageViewTeValasztasod.setImageResource(R.drawable.rock);
             gepSorsol();
-            ellenoriz();
+            teTipped = 0;
+            kiNyer(teTipped, randomGepTippel);
         });
 
         papirGomb.setOnClickListener(view -> {
             imageViewTeValasztasod.setImageResource(R.drawable.paper);
             gepSorsol();
+            teTipped = 1;
+            kiNyer(teTipped, randomGepTippel);
         });
 
         olloGomb.setOnClickListener(view -> {
             imageViewTeValasztasod.setImageResource(R.drawable.scissors);
             gepSorsol();
+            teTipped = 2;
+            kiNyer(teTipped, randomGepTippel);
         });
     }
 
+    int randomGepTippel = (int)(Math.random() * 3);
     public void gepSorsol() {
-        int randomKep = (int)(Math.random() * 3);
 
-        if (randomKep == 0) {
+        if (randomGepTippel == 0) {
             imageViewGepValasztasa.setImageResource(R.drawable.rock);
-        } else if (randomKep == 1) {
+        } else if (randomGepTippel == 1) {
             imageViewGepValasztasa.setImageResource(R.drawable.paper);
         } else {
             imageViewGepValasztasa.setImageResource(R.drawable.scissors);
         }
     }
 
-    public void ellenoriz() {
+    int teTipped;
+    public void kiNyer(int ember, int gep) {
+        if (ember == gep) {
+
+        } else if (ember == 0 && gep == 1) {
+
+        } else if (ember == 0 && gep == 2) {
+
+        } else if (ember == 1 && gep == 0) {
+
+        } else if (ember == 1 && gep == 2) {
+
+        } else if (ember == 2 && gep == 0) {
+
+        } else if (ember == 2 && gep == 1) {
+
+        }
     }
 
     public void init() {
