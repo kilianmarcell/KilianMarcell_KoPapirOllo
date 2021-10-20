@@ -19,6 +19,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
+
+        koGomb.setOnClickListener(view -> {
+            imageViewTeValasztasod.setImageResource(R.drawable.rock);
+        });
+
+        papirGomb.setOnClickListener(view -> {
+            imageViewTeValasztasod.setImageResource(R.drawable.paper);
+        });
+
+        olloGomb.setOnClickListener(view -> {
+            imageViewTeValasztasod.setImageResource(R.drawable.scissors);
+        });
     }
 
     public void init() {
