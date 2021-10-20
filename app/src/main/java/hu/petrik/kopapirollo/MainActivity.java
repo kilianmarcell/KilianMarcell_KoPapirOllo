@@ -22,15 +22,34 @@ public class MainActivity extends AppCompatActivity {
 
         koGomb.setOnClickListener(view -> {
             imageViewTeValasztasod.setImageResource(R.drawable.rock);
+            gepSorsol();
+            ellenoriz();
         });
 
         papirGomb.setOnClickListener(view -> {
             imageViewTeValasztasod.setImageResource(R.drawable.paper);
+            gepSorsol();
         });
 
         olloGomb.setOnClickListener(view -> {
             imageViewTeValasztasod.setImageResource(R.drawable.scissors);
+            gepSorsol();
         });
+    }
+
+    public void gepSorsol() {
+        int randomKep = (int)(Math.random() * 3);
+
+        if (randomKep == 0) {
+            imageViewGepValasztasa.setImageResource(R.drawable.rock);
+        } else if (randomKep == 1) {
+            imageViewGepValasztasa.setImageResource(R.drawable.paper);
+        } else {
+            imageViewGepValasztasa.setImageResource(R.drawable.scissors);
+        }
+    }
+
+    public void ellenoriz() {
     }
 
     public void init() {
